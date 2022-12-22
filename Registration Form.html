@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<title>Registration Form</title>
+<style type="text/css">
+	body
+	{
+		background: #FFEFBA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+	}
+	
+</style>
+<script type="text/javascript">
+function verify()
+{
+	var name = document.getElementById("name");
+	var gender = document.getElementsByName("gender");
+	var pass = document.getElementById("pass");
+	var date of birth = document.getElementById("date of birth");
+	var Phone no. = document.getElementById("phone no.");
+	var Email Address = document.getElementById(" email address");
+	var city = document.getElementById("city");
+	var mailing address = document.getElementById("mailing address");
+	var pincode = document.getElementById("pincode");
+	var msg = new Array();
+	var flag = 1;
+	var message = "Following Details are Required\n";
+	var message2 = "Following Details are Required<br>";
+	if(name.value == "")
+	{
+		msg[0] = "Name is Required";
+		flag = 0;
+	} else { msg[0] = ""; }
+
+	if(gender[0].checked == false && gender[1].checked == false)
+	{
+		msg[1] = "Select Gender";
+		flag = 0;
+	} else { msg[1] = ""; }
+
+	if(pass.value == "")
+	{
+		msg[2] = "Password is Required";
+		flag = 0;
+	} else { msg[2] = ""; }
+
+	if(pass.value.length < 8)
+	{
+		msg[3] = "Password must be 8 characters long";
+		flag = 0;
+	} else { msg[3] = ""; }
+
+	if(date of birth.value == "")
+	{
+		msg[4] = "Date of birth is Required";
+		flag = 0;
+	}else { msg[4] = "";}
+
+	if(date of birth.value.year >=2022)
+	{
+		msg[5] = "Year of Birth must below 2022";
+		flag = 0;
+	}else { msg[5] = "";}
+
+	if(flag == 0)
+	{
+		// Show Error Messages
+		for(var x=0;x<=3;x++)
+		{
+			if(msg[x] != "")
+			{
+				message += msg[x] + "\n";
+				message2 += msg[x] + "<br>";
+			}
+		}
+		alert(message);
+		document.getElementById("abc").innerHTML = "<p style='color:red;'>"+message2+"</p>";
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+</script>
+</head>
+<body>
+	
+<div align="center">
+	<h2> STUDENT REGISTRATION FORM</h2>
+    <h3 id="abc"></h3>
+    <form method="post" action="" onSubmit="return verify()">
+    	<table border="2" cellspacing="0" cellpadding="10">
+        	<tr>
+        		<td colspan="2" align="center">* All fields are mandatory</td>
+       		</tr>
+       		<tr>
+       			<td>Name: </td>
+        		<td><input type="text" name="name" id="name" size="25" placeholder="Enter Name" required /></td>
+       		</tr>
+       		<tr>
+       			<td>Gender:</td>
+        		<td><input type="radio" name="gender" value="Male" required /> Male
+        		<input type="radio" name="gender" value="Female" required /> Female
+        		</td>
+        	</tr>
+        	<tr>
+        		<td>Password:</td>
+            	<td><input type="password" name="password" size="25" id="pass" placeholder="Enter Password" required /></td>
+            </tr>
+            <tr>
+            	<td>date of birth:</td>
+            	<td><input type="date" id="date of birth" name="Date of birth" placeholder="Enter date of birth" required/></td>
+            </tr>
+            	<tr>
+       			<td>Phone no. </td>
+        		<td><input type="tel" id="phone" name="phone" placeholder="123-45-678"  required></td>
+       		</tr>	
+       		<tr>
+       			<td>Email Address</td>
+        		<td><input type="email" id="email address" name="email" placeholder="Enter your email" required></td>
+       		</tr>	<tr>
+       			<td>city</td>
+        		<td><input type="text" name="name" id="name" size="25" placeholder="Enter your City Name" required /></td>
+       		</tr>	<tr>
+       			<td>Mailing Address </td>
+        		<td><textarea cols="50" rows="5" value="address" placeholder="Enter your address" required>
+		</textarea></td>
+       		</tr>
+       		<tr>
+       			<td>Pincode</td>
+        		<td> <input type="text" name="pin"  maxlength="6">
+    <input type="submit" value="Validate" required></td>
+       		</tr>
+            	<form action="/action_page.php">
+  
+
+  
+</form>
+            <tr>
+            	<td align="center" colspan="2">
+                <input type="submit" value="REGISTER" />
+                <input type="reset" value="CLEAR" />
+                </td>
+            </tr> 
+        </table>
+    </form>
+    <br>
+	<br>
+</div>
+<br><br>
+<footer align="center">
+<h3>&copy; AVAGESH PRAJAPATI | Department of Mechanical Engineering | USN: ME20030 |
+S.B. Jain, Nagpur</h3>
+</footer>
+
+</body>
